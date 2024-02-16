@@ -31,8 +31,8 @@ function App() {
                 <Route path="/:id" element={<Proposal />} />
                 <Route path="/" element={<Home />} />
             </Routes>
-            <Data></Data>
-             
+            {/* <Data></Data> */}
+        
         </BrowserRouter>
         
     );

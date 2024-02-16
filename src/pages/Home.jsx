@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./home.css"; // Import your custom CSS for styling
 import ProposeForm from "../components/ProposeForm";
 import HeroImage from "../static/images/hero.svg";
+import Data from "./data";
 
 // useEffect(() => {
 //     const fetchData = async () => {
@@ -17,6 +18,10 @@ import HeroImage from "../static/images/hero.svg";
 // }, []);
 
 const Home = ({ className = "" }) => (
+    <>
+    
+    
+    
     
     <header className={`hero ${className}`}>
         <div className="container">
@@ -40,7 +45,9 @@ const Home = ({ className = "" }) => (
                 </div>
             </div>
         </div>
+    <Data></Data>
     </header>
+    </>
 );
 
 export default Home;

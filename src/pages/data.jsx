@@ -21,7 +21,7 @@ export default function data() {
         fetchData();
     }, [1000]);
     return (
-        <div className="card">
+        <div className="carddd">
             {data && (
                 <div>
                     <p>Total Proposal Sent: {data.count}</p>

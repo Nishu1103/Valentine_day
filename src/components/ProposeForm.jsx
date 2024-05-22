@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import LinkModal from "./LinkModal";
 import ConfettiCannon from "./ConfettiCannon";
 import createToast from "../utils/toast";
 
-
-
 const ProposeForm = ({ className = "" }) => {
-
-    
     const [to, setTo] = useState("");
     const [from, setFrom] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [modal, setModal] = useState(false);
-    const [showConfetti, setShowConfetti] = useState(false); 
+    const [showConfetti, setShowConfetti] = useState(false);
+    const [loading, setLoading] = useState(false); // State for loader
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true); // Start loader
 
         try {
-            // Make Axios POST request to your API endpoint
             const response = await axios.post(
-                "http://localhost:5000/api/v1/Proposal/m",
+                "https://valentine-b.onrender.com/api/v1/Proposal/m",
                 {
                     to,
                     from,
@@ -34,17 +30,16 @@ const ProposeForm = ({ className = "" }) => {
             );
 
             console.log("Response:", response.data);
-            createToast(response.data,"Success")
-            toast.success('Successfully created!'); // Log the response
+            createToast(response.data, "Success");
             setModal(true);
-            setShowConfetti(true); 
+            setShowConfetti(true);
         } catch (error) {
-            console.error("Error:", error); 
-            createToast(error,"error")
-            toast.error('Successfully created!'); 
+            console.error("Error:", error);
+            createToast(error, "error");
         }
+
+        setLoading(false); // Stop loader after response
     };
-    
 
     return (
         <>
@@ -56,9 +51,8 @@ const ProposeForm = ({ className = "" }) => {
                         className="form_field"
                         placeholder="her/him name"
                     />
-                    <br></br>
+                    <br />
                     <Form.Control
-
                         value={from}
                         onChange={(e) => setFrom(e.target.value)}
                         className="form_field"
@@ -80,10 +74,15 @@ const ProposeForm = ({ className = "" }) => {
                         className="form_field"
                         placeholder=" Message for her/him"
                     />
-                    <br></br>
+                    <br />
                 </InputGroup>
-                <Button className="form_btn" variant="danger" type="submit">
-                    Propose Now
+                <Button
+                    className="form_btn"
+                    variant="danger"
+                    type="submit"
+                    disabled={loading} // Disable button during loading
+                >
+                    {loading ? "Sending..." : "Propose Now"}
                 </Button>
             </form>
             {showConfetti && <ConfettiCannon />}

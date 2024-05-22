@@ -44,20 +44,12 @@ const LinkModal = ({ className = '', person = null, show = false, hide = () => {
             <Modal.Header closeButton />
             <Modal.Body>
                 <p>
-                    now just copy the link and share with the person. don&apos;t shy and wish you
-                    all the best.
+                    your message has been sent
                 </p>
 
-                <p className="text-muted small">
-                    also you can take look from{' '}
-                    <a href={proposeLink} target="_blank" rel="noreferrer" className="text-danger">
-                        here
-                    </a>{' '}
-                    before sharing it
-                </p>
 
                 <InputGroup>
-                    <Form.Control defaultValue={proposeLink || 'sorry there is an error'} />
+                    {/* <Form.Control defaultValue={proposeLink || 'sorry there is an error'} /> */}
                     <OverlayTrigger
                         trigger="click"
                         placement="left"
@@ -65,7 +57,7 @@ const LinkModal = ({ className = '', person = null, show = false, hide = () => {
                         overlay={Message}
                         show={copied}
                     >
-                        <Button onClick={handleCopy}>copy</Button>
+                        <Button> All the best...!</Button>
                     </OverlayTrigger>
                 </InputGroup>
             </Modal.Body>

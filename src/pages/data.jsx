@@ -9,7 +9,7 @@ export default function data() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:10000/api/v1/Proposal/all"
+                    "https://valentine-b.onrender.com/api/v1/Proposal/all"
                 );
                 const data_propsal = response.data;
                 console.log("Data:", data_propsal);

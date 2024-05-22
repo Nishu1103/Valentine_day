@@ -50,6 +50,7 @@ const ProposeForm = ({ className = "" }) => {
                         onChange={(e) => setTo(e.target.value)}
                         className="form_field"
                         placeholder="her/him name"
+                        required
                     />
                     <br />
                     <Form.Control
@@ -57,6 +58,7 @@ const ProposeForm = ({ className = "" }) => {
                         onChange={(e) => setFrom(e.target.value)}
                         className="form_field"
                         placeholder="Your Nick Name"
+                        required
                     />
                 </InputGroup>
                 <InputGroup>
@@ -65,6 +67,7 @@ const ProposeForm = ({ className = "" }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         className="form_field"
                         placeholder="her/him Email"
+                        required
                     />
                 </InputGroup>
                 <InputGroup>
@@ -73,6 +76,7 @@ const ProposeForm = ({ className = "" }) => {
                         onChange={(e) => setMessage(e.target.value)}
                         className="form_field"
                         placeholder=" Message for her/him"
+                        required
                     />
                     <br />
                 </InputGroup>
